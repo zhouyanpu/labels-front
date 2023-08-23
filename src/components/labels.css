@@ -1,0 +1,26 @@
+.labelbox {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(199, 245, 245);
+    font-family: Montserrat, sans-serif;
+    width: 560px;
+    padding: 40px 0;
+    padding-bottom: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.5);
+    /* text-align: center; */
+    /* justify-content: center; */
+    border-radius: 8px;
+    user-select: none;
+    z-index: 99;
+  }
+
+  .btnbox {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  
+    /* background-color: aliceblue; */
+  }
