@@ -5,7 +5,12 @@ import { GiSave } from "react-icons/gi";
 import axios, { AxiosError } from "axios";
 import "./label.css";
 
-function Label({ lb, onDelete }) {
+interface Props {
+  lb: any;
+  onDelete: any;
+}
+
+function Label({ lb, onDelete }: Props) {
   const [isEdit, setIsEdit] = useState(false);
   const [displayName, setDisplayName] = useState(lb.name);
   const [newLabelName, setNewLabelName] = useState(lb.name);
@@ -29,14 +34,14 @@ function Label({ lb, onDelete }) {
         setDisplayName(res.data);
         // setNewLabelName(res.data);
       } catch {
-        (err) => console.log(err);
+        (err: any) => console.log(err);
       }
     }
     setIsEdit(!isEdit);
   };
-  const handleChange = (ev) => {
-    // console.log(ev.target.value);
-  };
+  // const handleChange = (ev) => {
+  //   // console.log(ev.target.value);
+  // };
 
   return (
     <div className="label">

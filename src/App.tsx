@@ -10,12 +10,12 @@ function App() {
   const [token, setToken] = useState(null);
   const [username, setUsername] = useState(null);
 
-  const handleLogin = (data, name) => {
+  const handleLogin = (data: any, name: any) => {
     setToken(data);
     setUsername(name);
     // console.log("hey    " + name);
   };
-  const handleSignOut = (data) => {
+  const handleSignOut = (data: any) => {
     setTimeout(() => {
       setToken(null);
     }, 200);

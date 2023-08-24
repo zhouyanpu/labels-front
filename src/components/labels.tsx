@@ -8,7 +8,13 @@ interface Label {
   id: number;
 }
 
-function Labels({ onSignOut, tk, name }) {
+interface Props {
+  onSignOut: any;
+  tk: any;
+  name: any;
+}
+
+function Labels({ onSignOut, tk, name }: Props) {
   const [labels, setLabels] = useState<Label[]>([]);
   const [toAdd, setToAdd] = useState("");
   const [username, setUsername] = useState(null);
@@ -30,7 +36,7 @@ function Labels({ onSignOut, tk, name }) {
 
   const inchange = async (ev: ChangeEvent) => {
     // console.log(ev.target.value);
-    setToAdd(ev.target.value);
+    setToAdd((ev.target as HTMLInputElement).value); // ###########################
     // console.log(toAdd);
   };
 
@@ -54,7 +60,7 @@ function Labels({ onSignOut, tk, name }) {
       .catch((err) => console.log(err));
   };
 
-  const deleteLabel = async (id) => {
+  const deleteLabel = async (id: any) => {
     console.log(id);
     let res = await axios.post("http://52.14.248.3:8000/dellabels/", id);
     console.log(res.data);

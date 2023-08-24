@@ -7,7 +7,11 @@ interface User {
   name: string;
 }
 
-function Login({ onLogin }) {
+interface Props {
+  onLogin: any;
+}
+
+function Login({ onLogin }: Props) {
   const [log, setLog] = useState(true);
   const [eamil, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,9 +46,9 @@ function Login({ onLogin }) {
         console.log(res.data);
         // localStorage.setItem("token", res.data);
         onLogin(res.data, name);
-      } catch (err) {
+      } catch (err: any) {
         console.log(Object.values(err.response.data)[0]);
-        setMsg(Object.values(err.response.data)[0]);
+        setMsg(String(Object.values(err.response.data)[0]));
         setTimeout(() => {
           setMsg("");
         }, 2000);
@@ -77,10 +81,10 @@ function Login({ onLogin }) {
         setTimeout(() => {
           onLogin(res.data, name);
         }, 1300);
-      } catch (err) {
+      } catch (err: any) {
         console.log((err as AxiosError).response?.data);
         // console.log(Object.values(err.response.data)[0][0]);
-        setMsg(Object.values(err.response.data)[0][0]);
+        // setMsg(   Object.values(err.response.data)[0][0]     );          ######################
         setTimeout(() => {
           setMsg("");
         }, 3000);
@@ -88,7 +92,7 @@ function Login({ onLogin }) {
     }
   };
 
-  const inchange = async (ev: ChangeEvent) => {
+  const inchange = async (ev: any) => {
     if (ev.target.name == "name") {
       //   console.log(ev.target.value);
       setName(ev.target.value);
